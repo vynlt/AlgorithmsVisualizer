@@ -1,0 +1,58 @@
+@charset "utf-8";
+html, body, p {
+    margin: 0px;
+    padding: 0px;
+    color: black;
+}
+
+html, body {
+    box-sizing: border-box;
+    background-color: #ffeead;
+    height: 100%;
+}
+
+
+#codetrace, #status {
+    background: #eeeeee;
+    font-family: "PT Sans";
+    font-size: 13px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.header {
+    background-color: #96ceb4;
+}
+
+.header :nth-child(2) {
+    padding: 0 40px;
+}
+
+.menu {
+    background-color: #ff6f69;
+}
+
+.content {
+    background-color: white;
+}
+
+.footer {
+    background-color: #88d8b0;
+}
+
+.grid-page > div {
+    color: #ffeead;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+a {
+    cursor: pointer;
+}
+
+#title {
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+}

@@ -58,7 +58,7 @@ var HashTable = function () {
 
         N = 0;
 
-        this.setActiveStatus("SC");
+
         if (activeStatus == "SC") { // Separate Chaining
             HT_SC = new Array(sz);
             for (var i = 0; i < sz; i++) HT_SC[i] = [];
@@ -921,8 +921,8 @@ var htw = new HashTable();
 var gw = htw.getGraphWidget();
 
 $(function () {
-    var four_modes = ["LP", "QP", "DH", "SC"];
-    $('#title-SC').click(); // randomly open one of the four default example every time
+    var four_modes = ["LP", "SC"];
+    $('#title-'+four_modes[Math.floor(Math.random()*2)]).click(); // randomly open one of the four default example every time
 
     var hashMode = getQueryVariable("mode");
     if (hashMode.length > 0) {

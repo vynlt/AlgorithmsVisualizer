@@ -1,0 +1,32 @@
+.execAction {
+    padding: 5px 8px;
+}
+
+.err {
+    padding: 5px 0px;
+}
+
+#actions-extras input {
+    width: 60px;
+    padding: 5px 8px 7px;
+}
+
+#insert-input input {
+    width: 100px;
+}
+
+.create {
+    bottom: 146px;
+}
+
+.search {
+    bottom: 119px;
+}
+
+.insert {
+    bottom: 92px;
+}
+
+.remove {
+    bottom: 65px;
+}

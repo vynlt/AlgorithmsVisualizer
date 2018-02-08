@@ -255,6 +255,7 @@ var HashTable = function () {
             // key = {key}, it must be between [0..99] in this visualization.
             // -1 = empty cell (blank) and -2 = deleted item.
             cs["status"] = 'key = {key}, it must be between [0..99] in this visualization.<br>-1 = empty cell (blank) and -2 = deleted item.'.replace("{key}", key);
+            
             stateList.push(cs);
         }
         else {
@@ -267,6 +268,7 @@ var HashTable = function () {
             cs["status"] = 'key = {key} is hashed to i = base = {key}%{length} = {i}.'.replace("{key}", key).replace("{key}", key).replace("{length}", M).replace("{i}", i);
             cs["vl"][i * 7]["state"] = VERTEX_HIGHLIGHTED;
             cs["lineNo"] = 1;
+            
             stateList.push(cs);
             vertexTraversed[i * 7] = true; // this is traversed in future iteration
 
@@ -275,6 +277,7 @@ var HashTable = function () {
                 cs["status"] = 'Checking this vertex';
                 cs["vl"][i * 7 + (j + 1)]["state"] = VERTEX_HIGHLIGHTED;
                 cs["lineNo"] = [2, 3];
+                
                 stateList.push(cs);
                 vertexTraversed[i * 7 + (j + 1)] = true; // this is traversed in future iteration
                 if (HT_SC[i][j] == key) {
@@ -282,6 +285,7 @@ var HashTable = function () {
                     cs["status"] = '{key} is found in Hash Table'.replace("{key}", key);
                     cs["vl"][i * 7 + (j + 1)]["state"] = VERTEX_HIGHLIGHTED;
                     cs["lineNo"] = [4];
+                    
                     stateList.push(cs);
                     break;
                 }
@@ -291,6 +295,7 @@ var HashTable = function () {
                 cs = createStateSC(vertexTraversed, edgeTraversed);
                 cs["status"] = '{key} is not found in Hash Table'.replace("{key}", key);
                 cs["lineNo"] = 5;
+                
                 stateList.push(cs);
             }
         }
@@ -315,6 +320,7 @@ var HashTable = function () {
                 // key = {key}, it must be between [0..99] in this visualization.
                 // -1 = empty cell (blank) and -2 = deleted item.
                 cs["status"] = 'key = {key}, it must be between [0..99] in this visualization.<br>-1 = empty cell (blank) and -2 = deleted item.'.replace("{key}", key);
+                
                 stateList.push(cs);
             }
             else if (HT.indexOf(key) != -1) {
@@ -322,6 +328,7 @@ var HashTable = function () {
                 // key = {key} is already in the Hash Table.
                 // We prevent insertion of duplicate keys.
                 cs["status"] = 'key = {key} is already in the Hash Table.<br>We prevent insertion of duplicate keys.'.replace("{key}", key);
+                
                 stateList.push(cs);
             }
             else {
@@ -331,6 +338,7 @@ var HashTable = function () {
                     // We cannot insert a new integer.
                     cs["status"] = 'Sorry, the Hash Table HT is nearly full (load factor too high).<br>We cannot insert a new integer.';
                     cs["lineNo"] = 1;
+                    
                     stateList.push(cs);
                 }
                 else { // not yet full, do the insertion
@@ -350,6 +358,7 @@ var HashTable = function () {
                     cs["status"] = 'The hash table is not yet full.<br>key = {key} is hashed to i = base = {key}%{length} = {i}.'.replace("{key}", key).replace("{key}", key).replace("{length}", HT.length).replace("{i}", i);
                     cs["vl"][i]["state"] = VERTEX_HIGHLIGHTED;
                     cs["lineNo"] = 2;
+                    
                     stateList.push(cs);
                     vertexTraversed[i] = true; // this is traversed in future iteration
 
@@ -378,6 +387,7 @@ var HashTable = function () {
                             .replace("{strategy}", strategy).replace("{base}", base).replace("{step}", step).replace("{jump}", jump).replace("{length}", HT.length).replace("{i_next}", i_next);
                         cs["vl"][i_next]["state"] = VERTEX_HIGHLIGHTED;
                         cs["lineNo"] = 3;
+                        
                         stateList.push(cs);
                         vertexTraversed[i_next] = true; // this is traversed in future iteration
                         i = i_next;
@@ -389,6 +399,7 @@ var HashTable = function () {
                         // After {step} probe steps, we still cannot find an insertion point.
                         // Reporting failure...
                         cs["status"] = 'After {step} probe steps, we still cannot find an insertion point.<br>Reporting failure...'.replace("{step}", step);
+                        
                         stateList.push(cs);
                     }
                     else {
@@ -400,6 +411,7 @@ var HashTable = function () {
                         cs["status"] = 'Found insertion point: Insert {key} at HT[{i}].<br>There are now {N} items in the Hash Table.'.replace("{key}", key).replace("{i}", i).replace("{N}", N);
                         cs["vl"][i]["state"] = VERTEX_TRAVERSED;
                         cs["lineNo"] = 4;
+                        
                         stateList.push(cs);
                     }
                 }
@@ -440,6 +452,7 @@ var HashTable = function () {
                     // key = {key} is already in the Hash Table.
                     // We prevent insertion of duplicate keys.
                     cs["status"] = 'key = {key} is already in the Hash Table.<br>We prevent insertion of duplicate keys.'.replace("{key}", key);
+                    
                     stateList.push(cs);
                 }
                 else { // key [0..99] and not inside
@@ -450,6 +463,7 @@ var HashTable = function () {
                     cs["status"] = 'The hash table is not yet full.<br>key = {key} is hashed to i = base = {key}%{length} = {i}.'.replace("{key}", key).replace("{key}", key).replace("{length}", M).replace("{i}", i);
                     cs["vl"][i * 7]["state"] = VERTEX_HIGHLIGHTED;
                     cs["lineNo"] = 1;
+                    
                     stateList.push(cs);
                     vertexTraversed[i * 7] = true; // this is traversed in future iteration
 
@@ -458,6 +472,7 @@ var HashTable = function () {
                         cs["status"] = 'Sorry, due to the limitation of this visualization<br>We do not allow any more extension to linked list {i}'.replace("{i}", i);
                         cs["vl"][i * 7]["state"] = VERTEX_HIGHLIGHTED;
                         cs["lineNo"] = 2;
+                        
                         stateList.push(cs);
                     }
                     else {
@@ -467,6 +482,7 @@ var HashTable = function () {
                         cs["vl"][i * 7 + (HT_SC[i].length - 1)]["state"] = VERTEX_HIGHLIGHTED;
                         cs["vl"][i * 7 + (HT_SC[i].length)]["state"] = VERTEX_HIGHLIGHTED;
                         cs["lineNo"] = 3;
+                        
                         stateList.push(cs);
                     }
                 }

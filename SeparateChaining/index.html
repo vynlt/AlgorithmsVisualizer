@@ -13,10 +13,13 @@
     <link rel="stylesheet" href="./src/visual.css">
     <link rel="stylesheet" href="./src/drawgraph.css">
 
+    <link rel="stylesheet" href="./css/viz.css">
+
     <link rel="stylesheet" href="./css/button.css">
 
     <link rel="stylesheet" href="./css/styles.css">
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
 </head>
 <body style="zoom: 100%;">
 <div id='cssmenu'>
@@ -47,6 +50,14 @@
 </div>
 
 
+<div id="console-hide" class="panel-hide" style="padding-top: 51px; padding-bottom: 51px; background-color: #2A2E45;">
+    <img src="./src/arrow_white_right.png" alt="&gt;" title="show/hide console panel" class="rotateRight">
+</div>
+
+<div id="console" class="panel" style="height: 118px; width: 300px; background-color: #2A2E45;">
+
+</div>
+
 <div id="actions" class="panel" style="height: 118px; width: 150px; background-color: rgb(167, 212, 30);">
     <p id="create">Create</p>
     <p id="search">Search(v)</p>
@@ -54,15 +65,15 @@
     <p id="remove">Remove(v)</p>
 </div>
 
-<div id="actions-hide" class="panel-hide"
-     style="padding-top: 51px; padding-bottom: 51px; background-color: rgb(167, 212, 30);"><img
-        src="./src/arrow_white_right.png" alt="&gt;" title="show/hide actions panel" class="rotateRight"></div>
+<div id="actions-hide" class="panel-hide" style="padding-top: 51px; padding-bottom: 51px; background-color: rgb(167, 212, 30);">
+    <img src="./src/arrow_white_right.png" alt="&gt;" title="show/hide actions panel" class="rotateRight">
+</div>
 <div id="actions-extras">
     <div class="create action-menu-pullout" style="left: 193px;">
         <div id="create-input" class="new-menu-option" style="float: left;"><p>Create empty hash table of size = <input
                 type="number" id="v-create" title="Enter an Integer" autocomplete="off" min="0" max="19" value="13"></p>
         </div>
-        <div id="create-go" class="execAction coloured-menu-option" onclick="createTable()"
+        <div id="create-go" class="execAction coloured-menu-option" onclick="createTable(); clearConsole();"
              style="float: left; background-color: rgb(167, 212, 30); color: rgb(255, 255, 255);"><p>Go</p></div>
         <div id="create-err" class="err" style="float: left;"></div>
     </div>
@@ -71,7 +82,7 @@
                                                                                        title="Enter an Integer"
                                                                                        autocomplete="off" min="0"
                                                                                        value="7"></div>
-        <div id="search-go" class="execAction coloured-menu-option" onclick="searchInteger()"
+        <div id="search-go" class="execAction coloured-menu-option" onclick="searchInteger(); clearConsole();"
              style="float: left; background-color: rgb(167, 212, 30); color: rgb(255, 255, 255);"><p>Go</p></div>
         <div id="search-err" class="err" style="float: left;"></div>
     </div>
@@ -80,7 +91,7 @@
                                                                                        title="Enter an Integer or comma-separated array of Integers"
                                                                                        autocomplete="off" value="35,77">
         </div>
-        <div id="insert-go" class="execAction coloured-menu-option" onclick="insertInteger()"
+        <div id="insert-go" class="execAction coloured-menu-option" onclick="insertInteger(); clearConsole();"
              style="float: left; background-color: rgb(167, 212, 30); color: rgb(255, 255, 255);"><p>Go</p></div>
         <div id="insert-err" class="err" style="float: left;"></div>
     </div>
@@ -89,7 +100,7 @@
                                                                                        title="Enter an Integer"
                                                                                        autocomplete="off" min="0"
                                                                                        value="21"></div>
-        <div id="remove-go" class="execAction coloured-menu-option" onclick="removeInteger()"
+        <div id="remove-go" class="execAction coloured-menu-option" onclick="removeInteger(); clearConsole();"
              style="float: left; background-color: rgb(167, 212, 30); color: rgb(255, 255, 255);"><p>Go</p></div>
         <div id="remove-err" class="err" style="float: left;"></div>
     </div>
@@ -102,11 +113,22 @@
 <script type="text/javascript" src="src/jquery-ui.min.js"></script>
 <script type="text/javascript" src="src/d3.min.js"></script>
 <script type="text/javascript" src="src/viz-1.0.3.js"></script>
+<script type="text/javascript" src="js/viz.js"></script>
 <script type="text/javascript" src="src/graph_library.js"></script>
 
 <script src="js/separate_chaining.js"></script>
+<div id="bottom-bar" style="height: 30px">
 
+</div>
+<div id="media-controls">
+    <span id="go-to-beginning" class="media-control-button" title="go to beginning" onclick="goToBeginning()"><img src="./src/goToBeginning.png" alt="go to beginning"></span>
+    <span id="previous" class="media-control-button" title="step backward" onclick="stepBackward()"><img src="./src/prevFrame.png" alt="previous frame"></span>
+    <span id="pause" class="media-control-button" title="pause" onclick="pause()"><img src="./src/pause.png" alt="pause"></span>
+    <span id="play" class="media-control-button" title="play" onclick="play()" style="display: none;"><img src="./src/play.png" alt="play"></span>
+    <span id="next" class="media-control-button" title="step forward" onclick="stepForward()"><img src="./src/nextFrame.png" alt="next frame"></span>
+    <span id="go-to-end" class="media-control-button" title="go to end" onclick="goToEnd()"><img src="./src/goToEnd.png" alt="go to end"></span>
 
+</div>
 
 </body>
 </html>
